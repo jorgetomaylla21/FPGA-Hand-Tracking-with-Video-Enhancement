@@ -1,0 +1,26 @@
+X = {{f00, f01, f02, f03}, {f10, f11, f12, f13}, {f20, f21, f22, f23}, {f30, f31, f32, f33}};
+
+CX = {{f11, f12}, {f21, f22}};
+FX = {{f12-f10, f13-f11}, {f22-f20, f23-f21}}/2;
+FY= {{f21-f01, f22-f02}, {f31-f11, f32-f12}}/2;
+FXY = {{f22-f02-f20+f00, f23-f03-f21+f01}, {f32-f12-f30+f10, f33-f13-f31+f11}}/4;
+
+F = Join[Join[CX, FX,2], Join[FY, FXY, 2]]; 
+
+Convert= {{1, 0, 0, 0}, {0, 0, 1, 0}, {-3 ,3, -2, -1}, {2, -2, 1, 1}};
+A = Convert.F.Transpose[Convert] ;
+(A)//MatrixForm
+
+For[i=0, i < 4, i++, 
+    For[j=0, j<4, j++,
+        y = j/4;
+        x= i/4 ;
+        upX = {1, x, x^2, x^3};
+        upY ={1, y, y^2, y^3};
+        output = Simplify[upY.A.Transpose[upX]];
+        Print["(x,y) = (",x,", ",y, ")"];
+        Print[Simplify[output]]
+        Print[];
+    ];
+    Print["--------------------------------"];
+]

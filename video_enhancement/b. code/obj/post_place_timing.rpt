@@ -1,0 +1,81 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Mon Dec 11 21:57:43 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_place_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Fully Placed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             3.716ns  (required time - arrival time)
+  Source:                 addra0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Destination:            frame_buffer/BRAM_reg_1_4__0/ENARDEN
+                            (rising edge-triggered cell RAMB36E1 clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Path Group:             clk_pixel_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            13.468ns  (clk_pixel_clk_wiz_0 rise@13.468ns - clk_pixel_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        8.850ns  (logic 4.159ns (46.994%)  route 4.691ns (53.006%))
+  Logic Levels:           1  (LUT3=1)
+  Clock Path Skew:        -0.089ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.589ns = ( 11.879 - 13.468 ) 
+    Source Clock Delay      (SCD):    -0.946ns
+    Clock Pessimism Removal (CPR):    0.554ns
+  Clock Uncertainty:      0.168ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.329ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, estimated)        1.233     2.673    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.025    -4.352 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, estimated)        1.666    -2.686    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.096    -2.590 r  mhdmicw/clkout1_buf/O
+                         net (fo=8539, estimated)     1.644    -0.946    clk_pixel
+    DSP48_X1Y24          DSP48E1                                      r  addra0/CLK
+  -------------------------------------------------------------------    -------------------
+    DSP48_X1Y24          DSP48E1 (Prop_dsp48e1_CLK_P[16])
+                                                      4.009     3.063 r  addra0/P[16]
+                         net (fo=80, estimated)       2.292     5.355    recover_m/P[1]
+    SLICE_X57Y32         LUT3 (Prop_lut3_I2_O)        0.150     5.505 r  recover_m/BRAM_reg_1_4__0_i_1/O
+                         net (fo=1, estimated)        2.399     7.904    frame_buffer/BRAM_reg_1_4__0_0[0]
+    RAMB36_X2Y16         RAMB36E1                                     r  frame_buffer/BRAM_reg_1_4__0/ENARDEN
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                     13.468    13.468 r  
+    N15                                               0.000    13.468 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    13.468    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    14.838 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, estimated)        1.171    16.010    mhdmicw/clk_ref_clk_wiz_0
+    MMCME2_ADV_X0Y0      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -7.279     8.731 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, estimated)        1.583    10.314    mhdmicw/clk_pixel_clk_wiz_0
+    BUFGCTRL_X0Y0        BUFG (Prop_bufg_I_O)         0.091    10.405 r  mhdmicw/clkout1_buf/O
+                         net (fo=8539, estimated)     1.474    11.879    frame_buffer/clk_pixel
+    RAMB36_X2Y16         RAMB36E1                                     r  frame_buffer/BRAM_reg_1_4__0/CLKARDCLK
+                         clock pessimism              0.554    12.433    
+                         clock uncertainty           -0.168    12.265    
+    RAMB36_X2Y16         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.645    11.620    frame_buffer/BRAM_reg_1_4__0
+  -------------------------------------------------------------------
+                         required time                         11.620    
+                         arrival time                          -7.904    
+  -------------------------------------------------------------------
+                         slack                                  3.716    
+
+
+
+

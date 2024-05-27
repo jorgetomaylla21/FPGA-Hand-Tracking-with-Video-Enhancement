@@ -1,0 +1,86 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (lin64) Build 3865809 Sun May  7 15:04:56 MDT 2023
+| Date         : Sat Nov 11 21:13:19 2023
+| Host         : worker running 64-bit Ubuntu 20.04.6 LTS
+| Command      : report_timing -file obj/post_synth_timing.rpt
+| Design       : top_level
+| Device       : 7s50-csga324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Synthesized
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             9.691ns  (required time - arrival time)
+  Source:                 mybicubic/red_bicubic_instance/pixel_0_1/m3_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Destination:            mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_21_reg[9]/D
+                            (rising edge-triggered cell FDRE clocked by clk_pixel_clk_wiz_0  {rise@0.000ns fall@6.734ns period=13.468ns})
+  Path Group:             clk_pixel_clk_wiz_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            13.468ns  (clk_pixel_clk_wiz_0 rise@13.468ns - clk_pixel_clk_wiz_0 rise@0.000ns)
+  Data Path Delay:        3.526ns  (logic 2.118ns (60.068%)  route 1.408ns (39.932%))
+  Logic Levels:           3  (CARRY4=3)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -2.279ns = ( 11.189 - 13.468 ) 
+    Source Clock Delay      (SCD):    -1.604ns
+    Clock Pessimism Removal (CPR):    0.530ns
+  Clock Uncertainty:      0.168ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.329ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                      0.000     0.000 r  
+    N15                                               0.000     0.000 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000     0.000    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.440     1.440 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, unplaced)         0.584     2.024    mhdmicw/clk_ref_clk_wiz_0
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -5.108    -3.083 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.800    -2.284    mhdmicw/clk_pixel_clk_wiz_0
+                         BUFG (Prop_bufg_I_O)         0.096    -2.188 r  mhdmicw/clkout1_buf/O
+                         net (fo=142, unplaced)       0.584    -1.604    mybicubic/red_bicubic_instance/pixel_0_1/clk_pixel
+                         FDRE                                         r  mybicubic/red_bicubic_instance/pixel_0_1/m3_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.456    -1.148 r  mybicubic/red_bicubic_instance/pixel_0_1/m3_reg[5]/Q
+                         net (fo=29, unplaced)        0.735    -0.413    mybicubic/red_bicubic_instance/pixel_1_1/D[0]
+                         CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.719     0.306 r  mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_210__5_carry/O[1]
+                         net (fo=1, unplaced)         0.673     0.979    mybicubic/red_bicubic_instance/pixel_1_1/PCOUT[8]
+                         CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.708     1.687 r  mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_210__9_carry__0/CO[3]
+                         net (fo=1, unplaced)         0.000     1.687    mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_210__9_carry__0_n_0
+                         CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.235     1.922 r  mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_210__9_carry__1/O[0]
+                         net (fo=1, unplaced)         0.000     1.922    mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_210[9]
+                         FDRE                                         r  mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_21_reg[9]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pixel_clk_wiz_0 rise edge)
+                                                     13.468    13.468 r  
+    N15                                               0.000    13.468 r  clk_100mhz (IN)
+                         net (fo=0)                   0.000    13.468    mhdmicw/clk_100mhz
+    N15                  IBUF (Prop_ibuf_I_O)         1.370    14.838 r  mhdmicw/clkin1_ibufg/O
+                         net (fo=1, unplaced)         0.439    15.277    mhdmicw/clk_ref_clk_wiz_0
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT0)
+                                                     -5.378     9.899 r  mhdmicw/mmcm_adv_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.760    10.659    mhdmicw/clk_pixel_clk_wiz_0
+                         BUFG (Prop_bufg_I_O)         0.091    10.750 r  mhdmicw/clkout1_buf/O
+                         net (fo=142, unplaced)       0.439    11.189    mybicubic/red_bicubic_instance/pixel_1_1/clk_pixel
+                         FDRE                                         r  mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_21_reg[9]/C
+                         clock pessimism              0.530    11.719    
+                         clock uncertainty           -0.168    11.551    
+                         FDRE (Setup_fdre_C_D)        0.062    11.613    mybicubic/red_bicubic_instance/pixel_1_1/pos_00_12_21_reg[9]
+  -------------------------------------------------------------------
+                         required time                         11.613    
+                         arrival time                          -1.922    
+  -------------------------------------------------------------------
+                         slack                                  9.691    
+
+
+
+
